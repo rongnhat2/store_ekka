@@ -36,12 +36,24 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route("admin.discount.index") }}" class=" waves-effect">
+                        <i class="  feather-anchor  "></i>
+                        <span>Giảm giá</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route("admin.order.index") }}" class=" waves-effect">
                         <i class="feather-truck"></i>
                         <span>Đơn hàng</span>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="{{ route("admin.warehouse.index") }}" class=" waves-effect">
+                        <i class="feather-home "></i>
+                        <span>Kho</span>
+                    </a>
+                </li>
+                 
             </ul>
         </div>
         <!-- Sidebar -->

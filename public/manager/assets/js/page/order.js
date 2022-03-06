@@ -44,7 +44,7 @@ const View = {
                 </div>`,
                 data.created_at,
                 `<div class="badge ${order_status[data.order_status]}">${order_status_title[data.order_status]}</div>
-                <div class="badge ${order_payment[data.payment]}">${order_payment_title[data.payment]}</div>`,
+                <div class="badge ${order_payment[data.status]}">${order_payment_title[data.status]}</div>`,
                 `<div class="view-data modal-fs-control" style="cursor: pointer" atr="View" data-id="${data.id}"><i class=" feather-eye "></div>`
             ]
         },

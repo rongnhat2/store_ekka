@@ -96,6 +96,9 @@ Route::middleware(['AuthAdmin:admin'])->group(function () {
         Route::prefix('product')->group(function () {
             Route::get('/', 'Admin\ProductController@index')->name('admin.product.index');
         });
+        Route::prefix('discount')->group(function () {
+            Route::get('/', 'Admin\ProductController@discount')->name('admin.discount.index');
+        });
         Route::prefix('warehouse')->group(function () {
             Route::get('/', 'Admin\WarehouseController@index')->name('admin.warehouse.index');
         });
@@ -116,17 +119,39 @@ Route::middleware(['AuthAdmin:admin'])->group(function () {
 
         Route::prefix('product')->group(function () {
             Route::get('get', 'Admin\ProductController@get')->name('admin.product.get');
+            Route::get('getfree', 'Admin\ProductController@getfree')->name('admin.product.getfree');
+            Route::get('get-discount', 'Admin\ProductController@get_discount')->name('admin.product.get_discount');
+
             Route::get('/get-one/{id}', 'Admin\ProductController@get_one')->name('admin.product.get_one');
             Route::post('store', 'Admin\ProductController@store')->name('admin.product.store');
             Route::put('/update-trending', 'Admin\ProductController@update_trending')->name('admin.product.trending.update');
             Route::post('/update', 'Admin\ProductController@update')->name('admin.product.update');
+            Route::post('/update-discount', 'Admin\ProductController@update_discount')->name('admin.product.update_discount');
+            Route::get('/delete-discount/{id}', 'Admin\ProductController@delete_discount')->name('admin.product.delete_discount');
             Route::get('/delete/{id}', 'Admin\ProductController@delete')->name('admin.product.delete');
+        });
+
+        Route::prefix('warehouse')->group(function () {
+            Route::get('get-item', 'Admin\WarehouseController@get_item')->name('admin.warehouse.item.get');
+            Route::get('get-history', 'Admin\WarehouseController@get_history')->name('admin.warehouse.history.get');
+            Route::post('store', 'Admin\WarehouseController@store')->name('admin.warehouse.store');
+            Route::get('/get-ware-one/{id}', 'Admin\WarehouseController@get_ware_one')->name('admin.warehouse.get_ware_one');
+
+            Route::get('/get-one/{id}', 'Admin\ProductController@get_one')->name('admin.warehouse.get_one');
+            Route::post('/update', 'Admin\ProductController@update')->name('admin.warehouse.update');
         });
 
         Route::prefix('order')->group(function () {
             Route::get('get', 'Admin\OrderController@get')->name('admin.order.get');
             Route::get('get-one', 'Admin\OrderController@get_one')->name('admin.order.get');
             Route::post('/update', 'Admin\OrderController@update')->name('admin.order.update');
+
+        });
+
+        Route::prefix('statistic')->group(function () {
+            Route::get('get-total', 'Admin\OrderController@get_total')->name('admin.order.get_total');
+            Route::get('get-best-sale', 'Admin\OrderController@get_best_sale')->name('admin.order.get_best_sale');
+            Route::get('get-customer', 'Admin\OrderController@get_customer')->name('admin.order.get_customer');
 
         });
 

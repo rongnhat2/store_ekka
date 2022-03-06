@@ -421,6 +421,18 @@ const View = {
             View.modals.Delete.setDefaul();
         })
     })
+    ViewIndex.table.onSwitch(debounce((item) => {
+        Api.Product.Trending(item.attr('data-id'))
+            .done(res => {
+                getData()
+                item.find('.slider').toggleClass('active');
+            })
+            .fail(err => {
+                console.log(err);
+            })
+            .always(() => {
+            });
+    }, 500));
 
     function init(){
         getData();

@@ -179,8 +179,16 @@ const ViewIndex = {
             });
         }
     },
+    isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    },
     init(){
-
+        $(document).on('keypress', `.type-number`, function(event) {
+            return ViewIndex.isNumberKey(event);
+        });
         ViewIndex.image.init();
         ViewIndex.multiImage.init();
     }

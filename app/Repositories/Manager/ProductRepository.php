@@ -17,6 +17,12 @@ class ProductRepository extends BaseRepository implements RepositoryInterface
         $this->model = $model;
     }
 
+    public function getfree(){
+        $sql = "SELECT product.*
+                    FROM product
+                    WHERE discount = 0";
+        return DB::select($sql);
+    }
     public function get_product(){
         $sql = "SELECT product.*, category.name as category_name
                     FROM product
@@ -25,6 +31,16 @@ class ProductRepository extends BaseRepository implements RepositoryInterface
                     ORDER BY product.created_at DESC";
         return DB::select($sql);
     }
+    public function get_discount(){
+        $sql = "SELECT product.*, category.name as category_name
+                    FROM product
+                    LEFT JOIN category
+                    ON category.id = product.category_id
+                    WHERE product.discount <> 0
+                    ORDER BY product.created_at DESC";
+        return DB::select($sql);
+    }
+
     public function get_one($id){
         $sql = "SELECT product.*,
                     category.name as category_name

@@ -2,7 +2,9 @@ const Api = {
     Image: {},
     Category: {},
     Product: {},
+    Warehouse: {},
     Order: {},
+    Statistic: {},
 
 };
 (() => {
@@ -51,6 +53,16 @@ const Api = {
         url: `/apip/product/get`,
         method: 'GET',
     });
+    Api.Product.GetFree = () => $.ajax({
+        url: `/apip/product/getfree`,
+        method: 'GET',
+    }); 
+
+    Api.Product.GetDiscount = () => $.ajax({
+        url: `/apip/product/get-discount`,
+        method: 'GET',
+    });
+
     Api.Product.Store = (data) => $.ajax({
         url: `/apip/product/store`,
         method: 'POST',
@@ -69,6 +81,17 @@ const Api = {
         data: data,
         contentType: false,
         processData: false,
+    });
+    Api.Product.UpdateDiscount = (data) => $.ajax({
+        url: `/apip/product/update-discount`,
+        method: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+    });
+    Api.Product.DeleteDiscount = (id) => $.ajax({
+        url: `/apip/product/delete-discount/${id}`,
+        method: 'GET',
     });
     Api.Product.Delete = (id) => $.ajax({
         url: `/apip/product/delete/${id}`,
@@ -122,3 +145,43 @@ const Api = {
         processData: false,
     });
 })();
+
+// Warehouse
+(() => {
+    Api.Warehouse.GetDataItem = () => $.ajax({
+        url: `/apip/warehouse/get-item`,
+        method: 'GET',
+    });
+    Api.Warehouse.GetDataHistory = () => $.ajax({
+        url: `/apip/warehouse/get-history`,
+        method: 'GET',
+    }); 
+    Api.Warehouse.Store = (data) => $.ajax({
+        url: `/apip/warehouse/store`,
+        method: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+    });
+    Api.Warehouse.getOne = (id) => $.ajax({
+        url: `/apip/warehouse/get-ware-one/${id}`,
+        method: 'GET',
+    });
+})();
+
+// Statistic
+(() => {
+    Api.Statistic.getTotal = () => $.ajax({
+        url: `/apip/statistic/get-total`,
+        method: 'GET',
+    });
+    Api.Statistic.getBestSale = () => $.ajax({
+        url: `/apip/statistic/get-best-sale`,
+        method: 'GET',
+    });
+    Api.Statistic.getCustomerBuy = () => $.ajax({
+        url: `/apip/statistic/get-customer`,
+        method: 'GET',
+    });
+})();
+

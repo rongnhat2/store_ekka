@@ -23,10 +23,23 @@ class ProductController extends Controller
     public function index(){
         return view("admin.manager.product");
     }
+    public function discount(){
+        return view("admin.manager.discount");
+    }
     public function get(){
         $data = $this->product->get_product();
         return $this->product->send_response(201, $data, null);
     }
+    public function getfree(){
+        $data = $this->product->getfree();
+        return $this->product->send_response(201, $data, null);
+    }
+
+    public function get_discount(){
+        $data = $this->product->get_discount();
+        return $this->product->send_response(201, $data, null);
+    }
+    
     public function get_one($id){
         $data = $this->product->get_one($id);
         return $this->product->send_response(200, $data, null);
@@ -74,6 +87,17 @@ class ProductController extends Controller
         $data_return = $this->product->update($data, $request->data_id);
         return $this->product->send_response(201, $data_return, null);
     }
+    public function update_discount(Request $request){
+        $product_id = $request->data_product;
+        $discount = $request->data_discount;
+        $this->product->update(["discount" => $discount], $product_id);
+        return $this->product->send_response(200, null, null);
+    }
+    public function delete_discount($id){
+        $this->product->update(["discount" => 0], $id);
+        return $this->product->send_response(200, null, null);
+    }
+
     public function delete($id){
         $data = $this->product->delete($id);
         return $this->product->send_response(200, "Delete successful", null);
@@ -81,5 +105,10 @@ class ProductController extends Controller
     public function imageUpload(Request $request){
         $data = $this->product->imageInventor('image-upload', $request->file, 1280);
         return $this->product->send_response(201, $data, null);
+    }
+    // cập nhật trending
+    public function update_trending(Request $request){
+        $this->product->update_trending($request->id);
+        return $this->product->send_response(200, null, null);
     }
 }

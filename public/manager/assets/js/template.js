@@ -19,11 +19,27 @@ const Template = {
 			return `<div class="wrapper d-flex justify-center"><img src="/manager/images_global/funny.gif" alt=""></div>`
 		}
 	},
-	Product: {
-		Delete(){
-			return `<div class="wrapper d-flex justify-center"><img src="/manager/images_global/funny.gif" alt=""></div>`
-		}
-	},
+    Product: {
+        Delete(){
+            return `<div class="wrapper d-flex justify-center"><img src="/manager/images_global/funny.gif" alt=""></div>`
+        }
+    },
+    Discount: {
+        Create(){
+            return `<div class="error-log"></div>
+                    <div class="form-group">
+                        <label for="name">Sản phẩm</label>
+                        <select class="form-control data-product" name="" id=""></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Giảm giá</label>
+                        <input type="text" class="form-control data-discount" id="name" placeholder="Nhập số">
+                    </div>`
+        },
+        Delete(){
+            return `<div class="wrapper d-flex justify-center"><img src="/manager/images_global/funny.gif" alt=""></div>`
+        }
+    },
 	Order: {
 		Update(){
 			return `<div class="container">
@@ -114,5 +130,29 @@ const Template = {
                         </div>
                     </div>`
 		}
-	}
+	},
+    Warehouse: {
+        Create(){
+            return `<div class="row warehouse-modal">
+                        <div class="item-list"> </div>
+                        <button type="button" class="btn btn-success item-create" atr="Item Create">Tạo mới</button>
+                    </div>`
+        },
+        Update(){
+            return `<table class="table table-bordered sub-warehouse">
+                        <thead>
+                          <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá nhập</th>
+                            <th>Thành tiền</th>
+                          </tr>
+                        </thead>
+                        <tbody> 
+                        </tbody>
+                      </table>`
+        },
+
+    },
+    
 }
