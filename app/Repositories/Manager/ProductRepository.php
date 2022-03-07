@@ -106,7 +106,7 @@ class ProductRepository extends BaseRepository implements RepositoryInterface
         }else if($sort == 4){
             $sort_by = " ORDER BY prices ASC";
         }else if($sort == 5){
-            $sort_by = " ORDER BY created_at DESC";
+            $sort_by = " ORDER BY prices DESC";
         }
         $offset = $page == 1 ? "" : " OFFSET ".(($page-1) * $pageSize);
 
