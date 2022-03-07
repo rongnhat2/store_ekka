@@ -122,7 +122,7 @@ const View = {
                             <h2 class="ec-offer-title">${data.name}</h2>
                             <span class="ec-offer-img" data-animation="zoomIn">${data.description}</span>
                             <span class="ec-offer-price">${real_prices} đ</span>
-                            <a class="btn btn-primary" href="shop-left-sidebar-col-3.html" data-animation="zoomIn">Xem ngay</a>
+                            <a class="btn btn-primary" href="/product?id=${v.id}" data-animation="zoomIn">Xem ngay</a>
                         </div>
                     </div>
                 </div>`)
@@ -138,7 +138,7 @@ const View = {
                                                 <h1 class="ec-slide-title">${v.name}</h1>
                                                 <h2 class="ec-slide-stitle">${v.discount > 0 ? "Đang giảm giá" : ""}</h2>
                                                 <p>${v.description}</p>
-                                                <a href="#" class="btn btn-lg btn-secondary">Xem ngay</a>
+                                                <a href="/product?id=${v.id}" class="btn btn-lg btn-secondary">Xem ngay</a>
                                             </div>
                                         </div>
                                     </div>
