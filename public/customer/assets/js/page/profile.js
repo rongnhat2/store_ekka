@@ -159,9 +159,9 @@ const View = {
 						.append(`<tr>
 							        <td>${v.product_id}</td>
 							        <td>${v.name}</td>
-							        <td>${v.quantity}</td>
 							        <td>${v.price}</td>
 							        <td>${v.discount} %</td>
+							        <td>${v.quantity}</td>
 							        <td>${v.total_price}</td>
 							        <td><div class="badge ${order_status[v.suborder_status]}">${order_status_title[v.suborder_status]}</div></td>
 						      	</tr>`)
