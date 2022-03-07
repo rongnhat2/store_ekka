@@ -200,11 +200,11 @@ const View = {
                     Api.VNpay.Create(formVNpay).done(res => {
                         window.location.replace(res);
                     })
-                    .fail(err => { ViewIndex.helper.showToastError('Error', 'Có lỗi sảy ra'); })
+                    .fail(err => { LayoutView.helper.showToastError('Error', 'Có lỗi sảy ra'); })
                     .always(() => { });
                 }
             })
-            .fail(err => { ViewIndex.helper.showToastError('Error', 'Có lỗi sảy ra'); })
+            .fail(err => { LayoutView.helper.showToastError('Error', 'Có lỗi sảy ra'); })
             .always(() => { });
     })
     function getCart(){
