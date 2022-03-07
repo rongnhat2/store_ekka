@@ -128,6 +128,9 @@ const View = {
             $(".product-images").val("")
             $(".metadata-render").find(".metadata-item").remove()
             $(".product-description").val("")
+            $(".multi-upload .prev-upload").remove()
+            $(".error-log li").remove()
+            $("[valid-appended=name-append]").text("")
             ViewIndex.summerNote.update(".product-detail", "")
         },
         metadata: {
@@ -354,8 +357,8 @@ const View = {
             .fail(err => { ViewIndex.helper.showToastError('Error', 'Có lỗi sảy ra'); })
             .always(() => { });
 
-        View.mainTab.onShow("Create");
         View.mainTab.setDefaul();
+        View.mainTab.onShow("Create");
         View.mainTab.onPush("Create", (fd) => {
             Api.Product.Store(fd)
                 .done(res => {
